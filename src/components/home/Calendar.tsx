@@ -1,23 +1,31 @@
 import React from 'react';
 import {View} from 'react-native';
 import {Calendar as RNCalendar} from 'react-native-calendars';
-import {Button, makeStyles} from 'react-native-elements';
+import {Button, makeStyles, useTheme} from 'react-native-elements';
 import moment from 'moment'
 
 interface CalendarProps {
 }
 
 const Calendar: React.FC<CalendarProps> = () => {
+    const {theme} = useTheme()
     const styles = useStyles();
 
     const [selected, setSelected] = React.useState<{
 
-    }>({
-        [moment().startOf('week').format('YYYY-MM-DD')]: {startingDay: true, color: 'green', textColor: 'white'},
-        [moment().endOf('week').format('YYYY-MM-DD')]: {selected: true, endingDay: true, color: 'green', textColor: 'white'},
-    });
+    }>(() => {
+        const obj: Record<any, any> = {
+            [moment().startOf('week').format('YYYY-MM-DD')]: {selected: true, color: theme.colors?.primary, startingDay: true},
+        };
 
-    console.log({selected})
+        for(let i = 1; i <= 5; i++){
+            obj[moment().startOf('week').add(i, 'days').format('YYYY-MM-DD')] = {selected: true,color: theme.colors?.primary};
+        }
+
+        obj[moment().startOf('week').add(6, 'days').format('YYYY-MM-DD')] = {selected: true, color: theme.colors?.primary, endingDay: true};
+
+        return obj
+    });
 
     return <View style={styles.container}>
         <RNCalendar

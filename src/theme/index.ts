@@ -28,18 +28,12 @@ export const theme: Partial<FullTheme> = {
     xl: 40,
     xxl: 48,
   },
-  fontFamily: {
-    light: 'Poppins-Light',
-    regular: 'Poppins-Regular',
-    medium: 'Poppins-Medium',
-    mediumItalic: 'Poppins-MediumItalic',
-    semiBold: 'Poppins-SemiBold',
-    bold: 'Poppins-Bold',
-  },
-  Text: {
-    style: {
-      fontFamily: 'Poppins-Regular',
-      color: '#1B1B1B',
-    },
-  },
+  // fontFamily: {
+  //   light: 'Poppins-Light',
+  //   regular: 'Poppins-Regular',
+  //   medium: 'Poppins-Medium',
+  //   mediumItalic: 'Poppins-MediumItalic',
+  //   semiBold: 'Poppins-SemiBold',
+  //   bold: 'Poppins-Bold',
+  // },
 };

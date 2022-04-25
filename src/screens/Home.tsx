@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {ScrollView, TouchableOpacity, View} from 'react-native'
-import {Input, makeStyles, Text, useTheme,} from "react-native-elements";
+import {Image, ScrollView, TouchableOpacity, View} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Calendar from "../components/home/Calendar";
+import {Input, makeStyles, Text, useTheme} from "react-native-elements";
 
 
 const ItemView = (props: any) => {
@@ -51,6 +51,7 @@ const SearchText = () => {
         <Text style={styles.titleTextContainer}>Click Text</Text>
         <Input
             placeholder='Search'
+            inputContainerStyle={{borderBottomWidth: 0}}
             onChangeText={setSearchText}
             leftIcon={
                 <Icon
@@ -72,11 +73,35 @@ const MessageView = () => {
 
 
     return (<View>
+        <Text style={styles.titleTextContainer}>Click Text</Text>
+
         <Text style={styles.titleTextContainer}>Message test</Text>
-        <View style={{backgroundColor: 'green', borderRadius: 10,}}>
-            <Text>
-                This is an empty state, to be used for messages and/
-            </Text>
+        <View style={styles.messageContainer}>
+            <View style={{flexDirection: 'row'}}>
+                <View style={{flex: 1}}>
+                    <Text style={styles.messageTitle}>
+                        {`This is an empty state, to be used\nfor messages and/or blog articles`}
+                    </Text>
+                    <Text style={{paddingVertical: 10}}>
+                        {`Four lines to describe the message/article to be highlighted. The text is accompanied by an illustration in the top right-hand corner.`}
+                    </Text>
+                </View>
+                <View>
+                    <Image source={require('../assets/images/message_contain.png')} style={{width: 100, height: 100}}/>
+                </View>
+            </View>
+            <View style={styles.buttonContainer}>
+                <View style={styles.notNowButtonContainer}>
+                    <Text style={{color: '#B4EDA0', fontWeight: '700'}}>
+                        Not now
+                    </Text>
+                </View>
+                <View style={{padding: 10, backgroundColor: '#B4EDA0', borderRadius: 5}}>
+                    <Text style={{color: '#FFFFFF', fontWeight: '700'}}>
+                        Send Message
+                    </Text>
+                </View>
+            </View>
         </View>
     </View>)
 
@@ -152,7 +177,20 @@ const useStyles = makeStyles((theme) => ({
         borderWidth: 1,
         borderColor: '#E8E8E8',
         padding: 10
-    }
+    },
+
+messageContainer: {
+    backgroundColor: '#EAFFC9',
+        borderRadius: 10,
+        padding: 15,
+        marginVertical: 5,
+
+},
+messageTitle: {
+    fontWeight: '700',
+},
+buttonContainer: {flexDirection: 'row', alignSelf: 'flex-end', paddingTop: 10},
+notNowButtonContainer: {padding: 10, backgroundColor: 'transparent', borderRadius: 5}
 }));
 
 export default Home;

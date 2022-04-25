@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme, props: ButtonProps) => ({
   secondary: {
     backgroundColor:
       props.type === 'outline' || props.type === 'clear'
-        ? null
+        ? 'transparent'
         : theme.colors.secondary,
     borderRadius: theme.borderRadii.xl,
     paddingVertical: theme.spacing.s,
@@ -90,7 +90,6 @@ const useStyles = makeStyles((theme, props: ButtonProps) => ({
     fontSize: 16,
   },
   secondaryTitle: {
-    // color: theme.colors.buttonText,
     fontFamily: theme.fontFamily.medium,
     fontSize: 14,
   },

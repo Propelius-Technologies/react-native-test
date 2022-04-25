@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {ScrollView, TouchableOpacity, View} from 'react-native'
 import {Input, makeStyles, Text, useTheme,} from "react-native-elements";
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Calendar from "../components/home/Calendar";
 
 
 const ItemView = (props: any) => {
@@ -71,8 +72,12 @@ const MessageView = () => {
 
 
     return (<View>
-        <Text style={styles.titleTextContainer}>Click Text</Text>
-
+        <Text style={styles.titleTextContainer}>Message test</Text>
+        <View style={{backgroundColor: 'green', borderRadius: 10,}}>
+            <Text>
+                This is an empty state, to be used for messages and/
+            </Text>
+        </View>
     </View>)
 
 }
@@ -95,6 +100,10 @@ const Home: React.FC = props => {
                     <ClickView/>
                     <SearchText/>
                     <MessageView/>
+                </View>
+
+                <View>
+                    <Calendar />
                 </View>
 
             </ScrollView>

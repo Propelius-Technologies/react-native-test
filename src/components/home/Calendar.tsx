@@ -1,7 +1,7 @@
 import React from 'react';
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import {Calendar as RNCalendar} from 'react-native-calendars';
-import {Button, makeStyles} from 'react-native-elements';
+import {Button, makeStyles, Text} from 'react-native-elements';
 import moment from 'moment'
 import {theme} from "../../theme";
 
@@ -40,26 +40,42 @@ const Calendar: React.FC<CalendarProps> = () => {
             markedDates={selected}
         />
 
-        <View style={styles.buttonsContainer}>
-            <Button  title='Previous' onPress={() => {
-                            setSelected(getMarkedDates(selectedWeek - 1));
+
+        <View style={{flexDirection: 'row', width: '100%', marginVertical: 15}}>
+            <TouchableOpacity onPress={() => {
+                setSelected(getMarkedDates(selectedWeek - 1));
                 setSelectedWeek(selectedWeek - 1);
-            }}/>
-            <Button title='Next' onPress={() => {
+            }} style={styles.btnContainer}>
+                <Text style={styles.btnText}>Previous week</Text>
+            </TouchableOpacity>
+            <View style={{width: 10, height: 1}}/>
+            <TouchableOpacity onPress={() => {
                 setSelected(getMarkedDates(selectedWeek + 1));
                 setSelectedWeek(selectedWeek + 1);
-            }} />
+            }} style={styles.btnContainer}>
+                <Text style={styles.btnText}>Next week</Text>
+            </TouchableOpacity>
         </View>
     </View>;
 };
 
 const useStyles = makeStyles(theme => ({
     container: {},
-    buttonsContainer:{
-        flexDirection: 'row',
+    btnContainer: {
+        height: 55,
+        flex: 1,
+        backgroundColor: '#FFA978',
+        borderRadius: 5,
+        justifyContent: 'center',
         alignItems: 'center',
+        marginTop: 5,
+        marginBottom: 15,
+    },
+    btnText: {
+        color: 'white',
+        fontWeight: '600',
 
-    }
+    },
 }));
 
 export default Calendar;

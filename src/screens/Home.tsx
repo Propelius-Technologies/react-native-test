@@ -180,34 +180,6 @@ const MessageView = () => {
                 </View>
             </View>
         </View>
-        <Text style={styles.titleTextContainer}>Message test</Text>
-        <View style={styles.messageContainer}>
-            <View style={{flexDirection: 'row'}}>
-                <View style={{flex: 1}}>
-                    <Text style={styles.messageTitle}>
-                        {`This is an empty state, to be used\nfor messages and/or blog articles`}
-                    </Text>
-                    <Text style={{paddingVertical: 10}}>
-                        {`Four lines to describe the message/article to be highlighted. The text is accompanied by an illustration in the top right-hand corner.`}
-                    </Text>
-                </View>
-                <View>
-                    <Image source={require('../assets/images/message_contain.png')} style={{width: 100, height: 100}}/>
-                </View>
-            </View>
-            <View style={styles.buttonContainer}>
-                <View style={styles.notNowButtonContainer}>
-                    <Text style={{color: '#B4EDA0', fontWeight: '700'}}>
-                        Not now
-                    </Text>
-                </View>
-                <View style={{padding: 10, backgroundColor: '#B4EDA0', borderRadius: 5}}>
-                    <Text style={{color: '#FFFFFF', fontWeight: '700'}}>
-                        Send Message
-                    </Text>
-                </View>
-            </View>
-        </View>
     </View>)
 
 }
@@ -230,11 +202,7 @@ const Home: React.FC = props => {
                     <ClickView/>
                     <SearchText/>
                     <MessageView/>
-
-                    <View>
-                        <Calendar />
-                    </View>
-
+                    <Calendar />
                     <ListTextView/>
                 </View>
 
@@ -265,7 +233,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: 10,
         flex: 1,
     },
-    imageView: {width: 40, height: 40, backgroundColor: '#E8E8E8', borderRadius: 10},
+    imageView: {width: 32, height: 32, backgroundColor: '#E8E8E8', borderRadius: 8},
     descContainer: {flex: 1},
     titleText: {
         color: '#4A4A4A',
@@ -283,6 +251,13 @@ const useStyles = makeStyles((theme) => ({
         borderColor: '#E8E8E8',
         marginTop: 5,
         marginBottom: 15,
+    },
+    calContainer : {
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#E8E8E8',
+        padding: 10,
+        marginTop : 30,
     },
     itemContainer: {
         flexDirection: 'row',
@@ -308,7 +283,7 @@ const useStyles = makeStyles((theme) => ({
          height: 55,
          flex: 1,
          backgroundColor: '#FFA978',
-         borderRadius: 5,
+         borderRadius: 8,
          justifyContent: 'center',
          alignItems: 'center',
          marginTop: 5,

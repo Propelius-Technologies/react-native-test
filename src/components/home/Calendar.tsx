@@ -34,13 +34,14 @@ const Calendar: React.FC<CalendarProps> = () => {
 
 
 
-    return <View style={styles.container}>
+    return <View style={styles.main}>
+        <Text style={styles.titleTextContainer}>Calender test</Text>
+        <View style={styles.container}>
         <RNCalendar
             markingType={'period'}
             markedDates={selected}
         />
-
-
+        </View>
         <View style={{flexDirection: 'row', width: '100%', marginVertical: 15}}>
             <TouchableOpacity onPress={() => {
                 setSelected(getMarkedDates(selectedWeek - 1));
@@ -60,16 +61,27 @@ const Calendar: React.FC<CalendarProps> = () => {
 };
 
 const useStyles = makeStyles(theme => ({
-    container: {},
+    main: {
+    },
+    container: {
+        borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#E8E8E8',
+        padding: 10,
+        marginTop : 10,
+    },
+    titleTextContainer: {
+        paddingVertical: 10,
+        fontWeight: '700',
+    },
     btnContainer: {
         height: 55,
         flex: 1,
         backgroundColor: '#FFA978',
-        borderRadius: 5,
+        borderRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 5,
-        marginBottom: 15,
     },
     btnText: {
         color: 'white',
